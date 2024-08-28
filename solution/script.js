@@ -1,7 +1,7 @@
 const emojiContainer = document.getElementById('emoji-container');
 const searchBox = document.getElementById('search-box');
 
-// A list of emojis with associated keywords for searching
+// list of emojis with associated keywords for searching
 const emojiList = [
   { emoji: "😀", keywords: ["grinning", "happy", "smile"] },
   { emoji: "😂", keywords: ["laugh", "tear", "joy", "lol"] },
@@ -17,14 +17,13 @@ const emojiList = [
   { emoji: "🙏", keywords: ["pray", "please", "thanks"] },
   { emoji: "🔥", keywords: ["fire", "lit", "hot"] },
   { emoji: "✨", keywords: ["sparkle", "shine", "star"] },
-  { emoji: "❤️", keywords: ["heart", "love", "like"] },
   { emoji: "💔", keywords: ["broken heart", "sad", "heartbreak"] },
   { emoji: "⭐", keywords: ["star", "favorite", "highlight"] },
   { emoji: "🎉", keywords: ["party", "celebrate", "confetti"] }
-  // Add more emojis and keywords as needed
+  // add more emojis and keywords as needed
 ];
 
-// Function to display emojis based on search input
+// displays emojis based on search input
 function displayEmojis(filter = "") {
   emojiContainer.innerHTML = "";
   const filteredEmojis = emojiList.filter(item =>
@@ -40,17 +39,17 @@ function displayEmojis(filter = "") {
   });
 }
 
-// Function to copy the selected emoji to the clipboard
+// copies selected emoji to clipboard
 function copyToClipboard(emoji) {
   navigator.clipboard.writeText(emoji).then(() => {
     alert(`Copied: ${emoji}`);
   });
 }
 
-// Event listener for search box input
+// event listener for search box input
 searchBox.addEventListener('input', () => {
   displayEmojis(searchBox.value);
 });
 
-// Initial display of all emojis
+// initial display of all emojis
 displayEmojis();
